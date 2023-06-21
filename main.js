@@ -15,14 +15,17 @@ const white = `<div style="display: inline-block; height: 50px; width: 50px; bac
 function mapSize(size = 8) {
     let chessSize = size * size;
     let arr = Array(chessSize);
-    let board1 = '';
-    let board2 = '';
-    let board = [];
+    let board = '';
     
   
     for (let i = 0; i < arr.length; i++) {
+      if(i % size === 0){
+        board += '</br>';
+      }
       if(i % 2 === 0){
-        board += black + white;
+        board += black;
+      }else {
+        board += white;
       }
     }
     return mapDOM.innerHTML = board;
