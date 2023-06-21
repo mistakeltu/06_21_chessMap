@@ -5,28 +5,26 @@ const mapDOM = document.querySelector('.chessmap');
 const whiteDOM = mapDOM.querySelector('.white');
 const blackDOM = mapDOM.querySelector('.black');
 
-const black = `<div style="height: 50px; width: 50px; background-color: black;" class="black"></div>`;
-const white = `<div style="height: 50px; width: 50px; background-color: white;" class="black"></div>`;
-const newLine = `</br>`;
+const black = `<div style="display: inline-block; height: 50px; width: 50px; background-color: black;"></div>`;
+const white = `<div style="display: inline-block; height: 50px; width: 50px; background-color: white;"></div>`;
 
-mapDOM.innerHTML += black;
+
+
+//mapDOM.innerHTML += black;
 
 function mapSize(size = 8) {
     let chessSize = size * size;
     let arr = Array(chessSize);
-    let board = '';
+    let board1 = '';
+    let board2 = '';
+    let board = [];
+    
   
     for (let i = 0; i < arr.length; i++) {
-        if ( i % size === 0){
-            board += newLine;
-        }
-      if (i % 2 === 0) {
-        board += black;
-      }else {
-          board += white;
+      if(i % 2 === 0){
+        board += black + white;
       }
     }
-  
     return mapDOM.innerHTML = board;
   }
   
