@@ -7,27 +7,29 @@ const blackDOM = mapDOM.querySelector('.black');
 
 const black = `<div style="height: 50px; width: 50px; background-color: black;" class="black"></div>`;
 const white = `<div style="height: 50px; width: 50px; background-color: white;" class="black"></div>`;
+const newLine = `</br>`;
 
 mapDOM.innerHTML += black;
 
 function mapSize(size = 8) {
-  let chessSize = size * size;
-  let board = '';
-
-  for (let i = 0; i < chessSize; i++) {
-    if (i % size === 0 && i !== 0) {
-      board += `\n`;
+    let chessSize = size * size;
+    let arr = Array(chessSize);
+    let board = '';
+  
+    for (let i = 0; i < arr.length; i++) {
+        if ( i % size === 0){
+            board += newLine;
+        }
+      if (i % 2 === 0) {
+        board += black;
+      }else {
+          board += white;
+      }
     }
-    if (i % 2 === 0) {
-      board += black;
-    } else {
-      board += white;
-    }
+  
+    return mapDOM.innerHTML = board;
   }
-
-  return mapDOM.innerHTML = board;
-}
-
-console.log(whiteDOM);
-console.log(blackDOM);
-console.log(mapSize());
+  
+  console.log(whiteDOM);
+  console.log(blackDOM);
+  console.log(mapSize(8));
